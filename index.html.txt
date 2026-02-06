@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Debarati 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+      overflow: hidden;
+      text-align: center;
+      color: #d10068;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      width: 80%;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 15px;
+      transition: all 0.2s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff1493;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ff69b4;
+      color: white;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff1493;
+      font-size: 24px;
+      animation: float 6s infinite ease-in;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+
+    #letter {
+      display: none;
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎷 Music -->
+  <audio autoplay loop>
+    <!-- IMPORTANT:
+         Download Careless Whisper MP3
+         and rename it to careless_whisper.mp3
+         and keep it in the same folder -->
+    <source src="careless_whisper.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1>Hey Debarati 💕</h1>
+
+  <div class="card" id="questionBox">
+    <p id="question">Do you know you are the cutest girl alive? 🥰</p>
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 🙄</button>
+  </div>
+
+  <div class="card" id="letter">
+    <h2>My Love Letter 💌</h2>
+    <p>
+      Debarati,<br><br>
+      From the moment you came into my life, everything became softer, warmer,
+      and brighter. You make my bad days better and my good days unforgettable.
+      I love the way you smile, the way you talk, and the way you exist.  
+      <br><br>
+      I don’t just love you — I choose you. Every day.  
+      I want to be with you, laugh with you, annoy you, and grow with you.  
+      <br><br>
+      Will you be my Valentine and my forever? 💕  
+      <br><br>
+      — Yours, always 💖
+    </p>
+  </div>
+
+  <script>
+    const questions = [
+      "Do you know you are the cutest girl alive? 🥰",
+      "Do you know you make my heart skip a beat? 💓",
+      "Do you know I smile like an idiot because of you? 😄",
+      "Do you know I want you forever? 💍",
+      "Will you be my Valentine, Debarati? 💖"
+    ];
+
+    let index = 0;
+    const questionEl = document.getElementById("question");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const questionBox = document.getElementById("questionBox");
+    const letter = document.getElementById("letter");
+
+    yesBtn.onclick = () => {
+      index++;
+      if (index < questions.length) {
+        questionEl.innerText = questions[index];
+      } else {
+        questionBox.style.display = "none";
+        letter.style.display = "block";
+      }
+    };
+
+    noBtn.onmouseover = () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    };
+
+    // Floating hearts 💕
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.bottom = "0px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+
+</body>
+</html>
